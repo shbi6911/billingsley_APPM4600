@@ -20,5 +20,7 @@ changed directory to testrep and pulled
 
 changes verified to be present
 
+renamed repository to billingsley_APPM4600 and invited APPM4600instruct as collaborator
+
 finished assignment
 
