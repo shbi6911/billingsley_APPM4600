@@ -1,0 +1,24 @@
+made SSH key
+
+encountered "The authenticity of host 'github.com (140.82.112.4)' can't be established."
+
+typed "yes" to connect anyway
+
+created testrep and cloned
+
+made README
+
+copied Homework and Lab folders into testrep
+
+added, committed and pushed successfully
+
+created testrep2
+
+added comments to Lab1, committed and pushed
+
+changed directory to testrep and pulled
+
+changes verified to be present
+
+finished assignment
+
