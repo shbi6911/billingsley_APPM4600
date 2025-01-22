@@ -87,6 +87,7 @@ xvec.fill(5)
 yvec = np.zeros(10)
 yvec.fill(2)
 
+# find dot product using custom function, tracking execution time
 import time
 start_time1 = time.time()
 dp = dotProduct(xvec,yvec,xvec.size)
@@ -95,6 +96,7 @@ end_time1 = time.time()
 execution_time1 = end_time1 - start_time1
 print("Execution time:", execution_time1)
 
+#find dot product using built-in function multi_dot, tracking execution time
 start_time2 = time.time()
 dp = la.multi_dot([xvec,yvec])
 print('the dot product is : ', dp)
@@ -102,9 +104,11 @@ end_time2 = time.time()
 execution_time2 = end_time2 - start_time2
 print("Execution time:", execution_time2)
 
+#define test matrices
 xmat = np.array([[1,2],[3,4],[5,6]])
 ymat = np.array([[9,8,7,6],[5,4,3,2]])
 
+#find matrix product using custom function, tracking execution time
 start_time3 = time.time()
 mp = matrixMult(xmat,ymat)
 print('the matrix product is : ', mp)
@@ -112,6 +116,7 @@ end_time3 = time.time()
 execution_time3 = end_time3 - start_time3
 print("Execution time:", execution_time3)
 
+#find matrix product using built-in function matmul, tracking execution time
 start_time4 = time.time()
 mp = np.matmul(xmat,ymat)
 print('the matrix product is : ', mp)
@@ -119,4 +124,4 @@ end_time4 = time.time()
 execution_time4 = end_time4 - start_time4
 print("Execution time:", execution_time4)
 
-
+#end assignment
