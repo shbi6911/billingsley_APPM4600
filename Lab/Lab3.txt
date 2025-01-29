@@ -1,0 +1,43 @@
+Prelab Questions:
+
+Bisection method finds a root of a function within an interval by cutting the interval in
+half, looking for which half has the root, and then applying the method iteratively to the
+new halved interval.  Assuming a root exists in the original interval, this method will
+converge to it eventually.
+
+For the method to work, a root (f(x) = 0) must exist within the specified interval.
+
+The fixed point iteration method is attempting to converge to a point on a function
+such that f(x) = x.  Not all functions have such a point, and even when they do, convergence
+is not guaranteed.
+
+Exercises 1:	f(x) = x^2(x-1)
+for interval [0.5,2] the function finds a root at 0.9999999...
+
+for interval [-1,0.5] the function returns astar = -1 and ier = -1, indicating it did not find
+a root in the interval.  The graph of the function indicates that x=0 is a root, but bisection
+cannot find it.
+
+for interval [-1,2] the function finds the same root at 0.9999999....
+
+The graph indicates a root of the function at 0, but the function does not change sign.  f(x)
+only touches the x-axis at x=0 and does not cross it, so bisection cannot find this root.
+
+Exercises 2:	
+First function, bisection finds root at 1, as expected from the (x-1) term
+
+Second function finds no root, expected from the function graph b/c root at 1 does not cross x-axis
+
+Third function finds exact root at 0, as expected
+
+Fourth function finds no root, as expected (sin x has no crossing of x-axis in this interval)
+
+Exercises 3:
+7^(1/5) = 1.475773
+
+Python began throwing overflow errors because iterating these functions results in very large numbers
+
+Don't have time to fix it right now, will come back later
+
+
+
