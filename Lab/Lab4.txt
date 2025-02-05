@@ -1,0 +1,16 @@
+Section 2:
+Altered fixed point code to output vector of iterations
+
+Algorithm to determine the order:
+
+Run fixed point algorithm and see if it converges
+look at limit equation
+take log of both sides, rearrange, substitute, get equation for alpha in terms of p_(n+1), p_(n-1), and pn
+compute carefully with iterated values, find alpha, and then find lambda if necessary
+
+2a)	converges to given fixed point, accurate to 10 digits (1.3652300134) in 12 iterations
+2b)	algorithm indicates linear convergence alpha=1
+	fails on some values because of cancellation due to points being close to the fixed point
+	found lambda = 1.0000423337013937
+
+This is all I got through.
