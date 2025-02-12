@@ -1,0 +1,20 @@
+Method		Input			Iteration	Idea				Required	Pros		Cons
+
+Bisection	f,[a,b],tol	f(a+b/2)	split interval iteratively	root exist	always works	slow
+
+Fixed Point	g,Nmax,tol,x0		g(x)		find fixed point		contractive	higher rate	still slow, might not work
+
+Newton		f,f',Nmax,tol,x0	f(x),f'(x)	use derivative to estimate	differentiable	quadratic	not always work
+
+Secant		f,Nmax,tol,xo		f(x) twice	use secant instead of deriv	contractive	superlinear	follows Newton
+
+
+Coded hybridRoot function to combine bisection and Newton
+
+hybridRoot worked first try!
+
+Newton alone converged in 26 iterations.
+
+Hybrid required 4 iterations of newton and an unknown number of iterations of bisection
+
+Ran out of time before modifying bisection code to output iteration count.
