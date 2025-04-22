@@ -243,8 +243,73 @@ def JacobiTest():
     plt.grid(True)
     plt.show()
 
+def compJacobiTest():
+    Nmax = 10
+    n_vec = np.arange(1, Nmax + 1)
+    jac_soln = np.zeros(Nmax)
+    err = np.zeros(Nmax)
+    soln = 18.9622351876;
+    f = lambda x: np.exp(x)/(np.cbrt(x-1)**2)
+    g = lambda x: np.exp(x)/(np.sign(x+6)*((np.abs(x+6))**(1/4)))
+    h = lambda x: np.exp(x)/((np.sign(x)*((np.abs(x))**(4/5)))*((np.sign(x+6)*((np.abs(x+6))**(1/4)))))
 
-JacobiTest()
+    for i in range(len(n_vec)):
+        n = n_vec[i]
+
+        #first integral
+        # a term:
+        a = -6  # start of interval
+        beta = -(1/4)
+
+        # b term:
+        b = 0  # end of interval
+        alpha = -(4/5)
+
+        xk_1, wk_1 = JacobiMethod(n, alpha, beta, a, b)
+        #transform xk to be on the apprpriate interval
+        xk_1_new = ((1-xk_1)*a + (1+xk_1)*b)/2
+        jac_soln_1 = (((b - a) / 2) ** (1 + alpha + beta)) * sum(wk_1*f(xk_1_new))
+
+        #second integral
+        # a term:
+        a = 0  # start of interval
+        beta = -(4 / 5)
+
+        # b term:
+        b = 1  # end of interval
+        alpha = -(2 / 3)
+
+        xk_2, wk_2 = JacobiMethod(n, alpha, beta, a, b)
+        # transform xk to be on the apprpriate interval
+        xk_2_new = ((1 - xk_2) * a + (1 + xk_2) * b) / 2
+        jac_soln_2 = (((b - a) / 2) ** (1 + alpha + beta)) * sum(wk_2 * g(xk_2_new))
+
+        # third integral
+        # a term:
+        a = 1  # start of interval
+        beta = -(2 / 3)
+
+        # b term:
+        b = 4  # end of interval
+        alpha = 0
+
+        xk_3, wk_3 = JacobiMethod(n, alpha, beta, a, b)
+        # transform xk to be on the apprpriate interval
+        xk_3_new = ((1 - xk_3) * a + (1 + xk_3) * b) / 2
+        jac_soln_3 = (((b - a) / 2) ** (1 + alpha + beta)) * sum(wk_3 * h(xk_3_new))
+
+
+        jac_soln[i] = jac_soln_1 + jac_soln_2 + jac_soln_3
+        err[i] = abs(soln - jac_soln[i]) / soln
+        print("The number of Jacobi Evals is: ", n, " and the error is: ", err[i])
+
+    plt.figure
+    plt.semilogy(n_vec, err)
+    plt.grid(True)
+    plt.show()
+
+#JacobiTest()
+compJacobiTest()
 #driver_1(vrb)
 #driver_2(vrb)
-driver_3(vrb)
+#driver_3(vrb)
